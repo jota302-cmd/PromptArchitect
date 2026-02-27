@@ -12,9 +12,9 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8167884438770174"
         crossorigin="anonymous"></script>
 
-    <!-- Favicon (Premium SVG Data URI - Violet Version) -->
+    <!-- Favicon (Premium SVG Data URI - Electric Cyan Version) -->
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2L2 26h28L16 2z' fill='none' stroke='%238B5CF6' stroke-width='2'/%3E%3Cpath d='M16 8l-8 14h16L16 8z' fill='%238B5CF6'/%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2L2 26h28L16 2z' fill='none' stroke='%2306B6D4' stroke-width='2'/%3E%3Cpath d='M16 8l-8 14h16L16 8z' fill='%2306B6D4'/%3E%3C/svg%3E">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,25 +35,25 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .glow-violet {
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
         }
 
-        .glow-violet:focus-within {
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.25);
-            border-color: rgba(139, 92, 246, 0.5);
+        .glow-cyan:focus-within {
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
+            border-color: rgba(6, 182, 212, 0.5);
         }
 
         .accent-text {
-            color: #8B5CF6;
+            color: #06B6D4;
         }
 
         .accent-bg {
-            background-color: #8B5CF6;
+            background-color: #06B6D4;
         }
 
         .hover-glow:hover {
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
         }
 
         textarea::placeholder {
@@ -131,9 +131,9 @@
         }
 
         .tab-active {
-            border-color: #8B5CF6;
-            background: rgba(139, 92, 246, 0.1);
-            color: #8B5CF6;
+            border-color: #06B6D4;
+            background: rgba(6, 182, 212, 0.1);
+            color: #06B6D4;
         }
     </style>
 </head>
@@ -144,14 +144,14 @@
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <a href="https://optimicrotools.com" title="Go to Home / Ir al Inicio"
                 class="flex items-center gap-3 transition-opacity hover:opacity-80">
-                <!-- Premium Geometric Logo (Violet Version) -->
+                <!-- Premium Geometric Logo (Electric Cyan Version) -->
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="drop-shadow-[0_0_8px_rgba(139,92,246,0.3)]">
-                    <rect x="2" y="2" width="28" height="28" rx="6" stroke="#8B5CF6" stroke-width="1.5"
+                    class="drop-shadow-[0_0_8px_rgba(6,182,212,0.3)]">
+                    <rect x="2" y="2" width="28" height="28" rx="6" stroke="#06B6D4" stroke-width="1.5"
                         stroke-opacity="0.3" />
-                    <path d="M16 7L24 22H8L16 7Z" fill="#8B5CF6" fill-opacity="0.9" />
+                    <path d="M16 7L24 22H8L16 7Z" fill="#06B6D4" fill-opacity="0.9" />
                     <path d="M16 12L20 20H12L16 12Z" fill="black" />
-                    <path d="M6 26H26" stroke="#8B5CF6" stroke-width="1" stroke-linecap="round" stroke-opacity="0.5" />
+                    <path d="M6 26H26" stroke="#06B6D4" stroke-width="1" stroke-linecap="round" stroke-opacity="0.5" />
                 </svg>
                 <span class="text-xl font-bold tracking-tight">Prompt<span class="accent-text">Architect</span></span>
             </a>
@@ -187,7 +187,7 @@
                     class="absolute -top-3 left-4 px-2 bg-black text-xs font-semibold text-violet-400 uppercase tracking-widest z-10">
                     Entrada del Prompt</div>
                 <textarea id="prompt-input"
-                    class="w-full h-48 bg-white/5 border border-white/10 rounded-2xl p-6 outline-none transition-all duration-300 focus:ring-1 focus:ring-violet-500/50 glow-violet resize-none text-base leading-relaxed"
+                    class="w-full h-48 bg-white/5 border border-white/10 rounded-2xl p-6 outline-none transition-all duration-300 focus:ring-1 focus:ring-cyan-500/50 glow-cyan resize-none text-base leading-relaxed"
                     placeholder="Escribe tu prompt base aquí..."></textarea>
                 <div id="error-msg"
                     class="absolute right-4 bottom-4 text-xs text-red-400 opacity-0 transition-opacity pointer-events-none">
@@ -235,7 +235,7 @@
                     <span id="output-label"
                         class="text-xs font-semibold text-white/40 uppercase tracking-widest">Resultado Refinado</span>
                     <button onclick="copyToClipboard()" id="copy-btn"
-                        class="text-xs font-bold text-violet-400 hover:text-violet-300 flex items-center gap-1 transition-colors">
+                        class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 transition-colors">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -246,7 +246,7 @@
                 </div>
                 <div class="relative">
                     <div id="prompt-output"
-                        class="w-full bg-violet-500/5 border border-violet-500/20 rounded-2xl p-6 text-white/90 text-base leading-relaxed break-words whitespace-pre-wrap italic">
+                        class="w-full bg-cyan-500/5 border border-cyan-500/20 rounded-2xl p-6 text-white/90 text-base leading-relaxed break-words whitespace-pre-wrap italic">
                     </div>
                 </div>
             </div>
@@ -257,15 +257,113 @@
     <div class="ad-slot max-w-full" id="ad-bottom" data-label="Ads / Anuncio"></div>
 
     <!-- Footer -->
-    <footer class="px-6 py-8 text-center text-white/20 text-xs tracking-widest uppercase space-y-2">
-        <p>© 2026 PromptArchitect — Privacy First Prompt Engineering</p>
-        <p>Part of <a href="https://optimicrotools.com"
-                class="hover:text-violet-400 transition-colors underline decoration-white/10 underline-offset-4">OptiMicroTools
-                Hub</a></p>
+    <footer class="px-6 py-12 text-center text-white/30 text-xs tracking-widest uppercase space-y-6">
+        <div class="flex flex-wrap justify-center gap-6 mb-4">
+            <button onclick="openModal('terms')" class="hover:text-cyan-400 transition-colors">Terms of Service</button>
+            <button onclick="openModal('privacy')" class="hover:text-cyan-400 transition-colors">Privacy Policy</button>
+            <button onclick="openModal('support')" id="footer-support"
+                class="hover:text-cyan-400 transition-colors font-bold">Support Project</button>
+            <button onclick="openModal('contact')" id="footer-contact"
+                class="hover:text-cyan-400 transition-colors">Contact</button>
+        </div>
+        <div class="space-y-2 opacity-50">
+            <p>© 2026 PromptArchitect — Privacy First Prompt Engineering</p>
+            <p>Part of <a href="https://optimicrotools.com"
+                    class="hover:text-cyan-400 transition-colors underline decoration-white/10 underline-offset-4"
+                    title="Go to Home / Ir al Inicio">OptiMicroTools
+                    Hub</a></p>
+        </div>
     </footer>
 
+    <!-- Modals Container -->
+    <div id="modal-overlay"
+        class="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] hidden items-center justify-center p-4">
+        <!-- Content Modal (Terms/Privacy) -->
+        <div id="content-modal"
+            class="glass max-w-2xl w-full max-h-[80vh] rounded-3xl p-8 overflow-y-auto hidden relative">
+            <button onclick="closeModal()"
+                class="absolute top-6 right-6 text-white/40 hover:text-white transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <div id="modal-body" class="prose prose-invert max-w-none">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+
+        <!-- Support Modal -->
+        <div id="support-modal" class="glass max-w-md w-full rounded-3xl p-8 hidden relative text-center">
+            <button onclick="closeModal()"
+                class="absolute top-6 right-6 text-white/40 hover:text-white transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 id="support-title" class="text-2xl font-bold mb-6">Support Project</h3>
+            <div class="grid gap-4">
+                <a href="https://www.buymeacoffee.com/jota302" target="_blank"
+                    class="flex items-center justify-between p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all border border-white/5 group">
+                    <span class="font-medium text-white/80 group-hover:text-white">Buy Me a Coffee</span>
+                    <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M20.2 7c-.4-1.1-1.3-1.8-2.1-2H17V3c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v10c0 4.4 3.6 8 8 8h1c2.2 0 4.1-1.5 4.8-3.5 1-.4 2.2-1.3 2.2-3.5V7zm-2 7c-.2 1.1-1 1.3-1.2 1.3H17l-3.2-.1c.1-.4.2-.8.2-1.2V3h1v2c0 .6.4 1 1 1h1.1c.3.1.6.4.8.9v4.1z" />
+                    </svg>
+                </a>
+                <a href="https://paypal.me/jota302" target="_blank"
+                    class="flex items-center justify-between p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all border border-white/5 group">
+                    <span class="font-medium text-white/80 group-hover:text-white">PayPal</span>
+                    <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M20.067 8.178c-.552 2.822-2.348 4.38-5.385 4.38H13.23l-.93 5.51h-2.93l.93-5.51H8.847l-.93 5.51H4.987l1.43-8.473h3.454l-.452 2.682h1.453c1.517 0 2.414-.78 2.689-2.203.275-1.422-.44-2.203-1.992-2.203H9.682l.452-2.682h3.454c3.037.001 5.031 1.559 4.479 4.38z" />
+                    </svg>
+                </a>
+                <button onclick="copyUSDT()"
+                    class="flex items-center justify-between p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all border border-white/5 group w-full">
+                    <div class="text-left">
+                        <span class="block font-medium text-white/80 group-hover:text-white" id="usdt-label">Crypto
+                            (USDT TRC20)</span>
+                        <span class="text-[10px] text-white/40 font-mono">TE95Gtd8qTWnsEcqXxDEoQoKLNg2hMvVtV</span>
+                    </div>
+                    <span id="usdt-copy-text"
+                        class="text-xs text-cyan-400 font-bold uppercase tracking-wider">Copy</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Contact Modal -->
+        <div id="contact-modal" class="glass max-w-md w-full rounded-3xl p-8 hidden relative text-center">
+            <button onclick="closeModal()"
+                class="absolute top-6 right-6 text-white/40 hover:text-white transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 id="contact-title" class="text-2xl font-bold mb-6">Contact</h3>
+            <div class="grid gap-4">
+                <a href="https://x.com/optimicrotools" target="_blank"
+                    class="flex items-center justify-between p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all border border-white/5 group">
+                    <span class="font-medium text-white/80 group-hover:text-white">X (Twitter)</span>
+                    <svg class="w-5 h-5 text-cyan-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+                <a href="mailto:jota302@gmail.com"
+                    class="flex items-center justify-between p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all border border-white/5 group">
+                    <span class="font-medium text-white/80 group-hover:text-white">Email</span>
+                    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
-        const i18n = {
+        const translations = {
             es: {
                 title: "PromptArchitect | Refina tus Prompts",
                 heroTitle: 'Refina tus ideas en <br><span class="accent-text italic">Prompts Maestros</span>.',
@@ -282,7 +380,15 @@
                 copy: "Copiar",
                 copied: "¡Copiado!",
                 emptyError: "Por favor introduce texto",
-                adLabel: "Ads / Anuncio"
+                adLabel: "Ads / Anuncio",
+                supportTitle: "Apoyar Proyecto",
+                contactTitle: "Contacto",
+                usdtLabel: "Crypto (USDT TRC20)",
+                copyBtn: "Copiar",
+                termsTitle: "Términos de Servicio",
+                privacyTitle: "Política de Privacidad",
+                termsContent: `<h2>Términos de Servicio</h2><p>Al utilizar PromptArchitect, aceptas nuestros términos. Esta herramienta procesa datos localmente en tu navegador. No almacenamos tus prompts en ningún servidor externo.</p><h3>Uso Aceptable</h3><p>Te comprometes a no utilizar la herramienta para generar contenido malicioso o ilegal.</p>`,
+                privacyContent: `<h2>Política de Privacidad</h2><p>Tu privacidad es nuestra prioridad. OptiMicroTools no recopila, almacena ni comparte los datos que introduces en PromptArchitect.</p><h3>Procesamiento Local</h3><p>Todo el refinamiento de prompts ocurre en el lado del cliente (tu dispositivo).</p>`
             },
             en: {
                 title: "PromptArchitect | Refine your Prompts",
@@ -300,7 +406,15 @@
                 copy: "Copy",
                 copied: "Copied!",
                 emptyError: "Please enter some text",
-                adLabel: "Ads / Advertisement"
+                adLabel: "Ads / Advertisement",
+                supportTitle: "Support Project",
+                contactTitle: "Contact",
+                usdtLabel: "Crypto (USDT TRC20)",
+                copyBtn: "Copy",
+                termsTitle: "Terms of Service",
+                privacyTitle: "Privacy Policy",
+                termsContent: `<h2>Terms of Service</h2><p>By using PromptArchitect, you agree to our terms. This tool processes data locally in your browser. We do not store your prompts on any external server.</p><h3>Acceptable Use</h3><p>You agree not to use the tool to generate malicious or illegal content.</p>`,
+                privacyContent: `<h2>Privacy Policy</h2><p>Your privacy is our priority. OptiMicroTools does not collect, store, or share the data you enter into PromptArchitect.</p><h3>Local Processing</h3><p>All prompt refinement occurs on the client-side (your device).</p>`
             }
         };
 
@@ -326,42 +440,48 @@
         let currentLang = 'es';
         let currentMode = 'academic';
 
-        // Initialization
         window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('pa-lang');
-            setLanguage(savedLang || (navigator.language.split('-')[0] === 'en' ? 'en' : 'es'));
+            try {
+                const savedLang = localStorage.getItem('pa-lang');
+                setLanguage(savedLang || (navigator.language.split('-')[0] === 'en' ? 'en' : 'es'));
+            } catch (e) {
+                setLanguage('es');
+            }
         });
 
         function setLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('pa-lang', lang);
+            const t = translations[lang];
 
-            // UI Updates
-            document.title = i18n[lang].title;
-            document.getElementById('hero-title').innerHTML = i18n[lang].heroTitle;
-            document.getElementById('hero-subtitle').innerText = i18n[lang].heroSubtitle;
-            document.getElementById('input-label').innerText = i18n[lang].inputLabel;
-            document.getElementById('prompt-input').placeholder = i18n[lang].inputPlaceholder;
-            document.getElementById('mode-label').innerText = i18n[lang].modeLabel;
-            document.getElementById('optimize-btn').innerText = i18n[lang].optimizeBtn;
-            document.getElementById('output-label').innerText = i18n[lang].outputLabel;
-            document.getElementById('copy-text').innerText = i18n[lang].copy;
-            document.getElementById('error-msg').innerText = i18n[lang].emptyError;
+            document.title = t.title;
+            document.getElementById('hero-title').innerHTML = t.heroTitle;
+            document.getElementById('hero-subtitle').innerText = t.heroSubtitle;
+            document.getElementById('input-label').innerText = t.inputLabel;
+            document.getElementById('prompt-input').placeholder = t.inputPlaceholder;
+            document.getElementById('mode-label').innerText = t.modeLabel;
+            document.getElementById('optimize-btn').innerText = t.optimizeBtn;
+            document.getElementById('output-label').innerText = t.outputLabel;
+            document.getElementById('copy-text').innerText = t.copy;
+            document.getElementById('error-msg').innerText = t.emptyError;
 
-            // Ads Label
-            document.getElementById('ad-top').setAttribute('data-label', i18n[lang].adLabel);
-            document.getElementById('ad-bottom').setAttribute('data-label', i18n[lang].adLabel);
+            document.getElementById('ad-top').setAttribute('data-label', t.adLabel);
+            document.getElementById('ad-bottom').setAttribute('data-label', t.adLabel);
 
-            // Buttons translation
             const btns = document.querySelectorAll('.mode-btn');
-            btns[0].querySelector('span').innerText = i18n[lang].modeAcademic;
-            btns[1].querySelector('span').innerText = i18n[lang].modeCreative;
-            btns[2].querySelector('span').innerText = i18n[lang].modeTechnical;
-            btns[3].querySelector('span').innerText = i18n[lang].modeExpert;
+            btns[0].querySelector('span').innerText = t.modeAcademic;
+            btns[1].querySelector('span').innerText = t.modeCreative;
+            btns[2].querySelector('span').innerText = t.modeTechnical;
+            btns[3].querySelector('span').innerText = t.modeExpert;
 
-            // Lang switcher active state
-            document.getElementById('btn-es').style.color = lang === 'es' ? '#8B5CF6' : '';
-            document.getElementById('btn-en').style.color = lang === 'en' ? '#8B5CF6' : '';
+            document.getElementById('btn-es').style.color = lang === 'es' ? '#06B6D4' : '';
+            document.getElementById('btn-en').style.color = lang === 'en' ? '#06B6D4' : '';
+
+            // Update modal labels
+            document.getElementById('support-title').innerText = t.supportTitle;
+            document.getElementById('contact-title').innerText = t.contactTitle;
+            document.getElementById('usdt-label').innerText = t.usdtLabel;
+            document.getElementById('usdt-copy-text').innerText = t.copyBtn;
         }
 
         function selectMode(mode, element) {
@@ -371,41 +491,94 @@
         }
 
         function optimize() {
-            const input = document.getElementById('prompt-input');
-            const outputText = document.getElementById('prompt-output');
-            const outputContainer = document.getElementById('output-container');
-            const errorMsg = document.getElementById('error-msg');
+            try {
+                const input = document.getElementById('prompt-input');
+                const outputText = document.getElementById('prompt-output');
+                const outputContainer = document.getElementById('output-container');
+                const errorMsg = document.getElementById('error-msg');
 
-            if (!input.value.trim()) {
-                errorMsg.style.opacity = '1';
-                input.classList.add('border-red-500/50');
-                setTimeout(() => {
-                    errorMsg.style.opacity = '0';
-                    input.classList.remove('border-red-500/50');
-                }, 3000);
-                return;
+                if (!input.value.trim()) {
+                    errorMsg.style.opacity = '1';
+                    input.classList.add('border-red-500/50');
+                    setTimeout(() => {
+                        errorMsg.style.opacity = '0';
+                        input.classList.remove('border-red-500/50');
+                    }, 3000);
+                    return;
+                }
+
+                const refined = templates[currentMode][currentLang](input.value.trim());
+                outputText.innerText = refined;
+
+                outputContainer.classList.remove('opacity-0', 'translate-y-4');
+                outputContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            } catch (err) {
+                console.error('Optimization error:', err);
             }
-
-            const refined = templates[currentMode][currentLang](input.value.trim());
-            outputText.innerText = refined;
-
-            outputContainer.classList.remove('opacity-0', 'translate-y-4');
-            outputContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
 
         async function copyToClipboard() {
             const text = document.getElementById('prompt-output').innerText;
             const btnText = document.getElementById('copy-text');
-
             try {
                 await navigator.clipboard.writeText(text);
                 const originalText = btnText.innerText;
-                btnText.innerText = i18n[currentLang].copied;
-                setTimeout(() => {
-                    btnText.innerText = originalText;
-                }, 2000);
+                btnText.innerText = translations[currentLang].copied;
+                setTimeout(() => btnText.innerText = originalText, 2000);
             } catch (err) {
-                console.error('Failed to copy: ', err);
+                console.error('Copy error:', err);
+            }
+        }
+
+        // Modal Logic
+        function openModal(type) {
+            const overlay = document.getElementById('modal-overlay');
+            const content = document.getElementById('content-modal');
+            const support = document.getElementById('support-modal');
+            const contact = document.getElementById('contact-modal');
+            const modalBody = document.getElementById('modal-body');
+
+            overlay.classList.replace('hidden', 'flex');
+            content.classList.add('hidden');
+            support.classList.add('hidden');
+            contact.classList.add('hidden');
+
+            if (type === 'terms' || type === 'privacy') {
+                modalBody.innerHTML = translations[currentLang][type + 'Content'];
+                content.classList.remove('hidden');
+            } else if (type === 'support') {
+                support.classList.remove('hidden');
+            } else if (type === 'contact') {
+                contact.classList.remove('hidden');
+            }
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('modal-overlay');
+            overlay.classList.replace('flex', 'hidden');
+            document.body.style.overflow = '';
+        }
+
+        window.onclick = (event) => {
+            const overlay = document.getElementById('modal-overlay');
+            if (event.target == overlay) closeModal();
+        };
+
+        window.onkeydown = (event) => {
+            if (event.key === 'Escape') closeModal();
+        };
+
+        async function copyUSDT() {
+            const address = "TE95Gtd8qTWnsEcqXxDEoQoKLNg2hMvVtV";
+            const btn = document.getElementById('usdt-copy-text');
+            try {
+                await navigator.clipboard.writeText(address);
+                const original = btn.innerText;
+                btn.innerText = translations[currentLang].copied;
+                setTimeout(() => btn.innerText = original, 2000);
+            } catch (err) {
+                console.error('Copy error:', err);
             }
         }
     </script>
