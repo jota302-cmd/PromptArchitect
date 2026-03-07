@@ -138,7 +138,7 @@
     </style>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col" style="opacity:0;transition:opacity 0.15s">
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 glass border-b border-white/5 px-6 py-4">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
@@ -156,19 +156,23 @@
                 <span class="text-xl font-bold tracking-tight">Prompt<span class="accent-text">Architect</span></span>
             </a>
 
-            <!-- Language Selector -->
-            <div class="flex items-center gap-2 text-sm font-medium">
-                <button onclick="setLanguage('es')" id="btn-es"
-                    class="px-2 py-1 rounded transition-colors hover:text-violet-400">ES</button>
-                <span class="text-white/20">|</span>
-                <button onclick="setLanguage('en')" id="btn-en"
-                    class="px-2 py-1 rounded transition-colors hover:text-violet-400">EN</button>
+            <!-- Language Toggle — same style as Hub -->
+            <div id="lang-toggle"
+                class="flex items-center gap-2 px-3 py-1.5 glass rounded-full border border-white/10 group cursor-pointer"
+                onclick="toggleLanguage()">
+                <span class="text-xs font-semibold opacity-70 group-hover:opacity-100 transition-opacity">EN</span>
+                <div class="w-10 h-5 bg-white/10 rounded-full relative flex items-center px-0.5">
+                    <div id="toggle-circle"
+                        class="w-4 h-4 bg-[#06B6D4] rounded-full shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]">
+                    </div>
+                </div>
+                <span class="text-xs font-semibold opacity-70 group-hover:opacity-100 transition-opacity">ES</span>
             </div>
         </div>
     </nav>
 
     <!-- Top Ad Slot -->
-    <div class="ad-slot max-w-full" id="ad-top" data-label="Ads / Anuncio"></div>
+    <div class="ad-slot max-w-full min-h-[90px]" id="ad-top" data-label="Ads / Anuncio"></div>
 
     <!-- Main Content -->
     <main class="flex-grow max-w-4xl mx-auto w-full px-6 py-12 space-y-8">
@@ -253,14 +257,181 @@
         </section>
     </main>
 
+    <!-- About this Tool Section -->
+    <section class="max-w-4xl mx-auto w-full px-6 mb-12 fade-in" style="animation-delay: 0.2s;">
+        <div class="glass rounded-3xl p-8 space-y-8 border border-white/10">
+            <div class="space-y-4">
+                <h2 id="about-title" class="text-2xl font-bold tracking-tight text-[#06B6D4]">Technical Insights: How
+                    PromptArchitect Works</h2>
+                <p id="about-description" class="text-white/70 leading-relaxed text-sm"></p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <h3 id="usage-title" class="text-lg font-semibold text-white/90">Guía de Uso Rápida</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-sm text-white/60">
+                            <span
+                                class="flex-shrink-0 w-6 h-6 rounded-full bg-[#06B6D4]/10 text-[#06B6D4] flex items-center justify-center font-bold text-xs ring-1 ring-[#06B6D4]/20">1</span>
+                            <span id="usage-step-1"></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-white/60">
+                            <span
+                                class="flex-shrink-0 w-6 h-6 rounded-full bg-[#06B6D4]/10 text-[#06B6D4] flex items-center justify-center font-bold text-xs ring-1 ring-[#06B6D4]/20">2</span>
+                            <span id="usage-step-2"></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-white/60">
+                            <span
+                                class="flex-shrink-0 w-6 h-6 rounded-full bg-[#06B6D4]/10 text-[#06B6D4] flex items-center justify-center font-bold text-xs ring-1 ring-[#06B6D4]/20">3</span>
+                            <span id="usage-step-3"></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 id="security-title" class="text-lg font-semibold text-white/90">Seguridad y Privacidad</h3>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/5 text-xs text-white/50 leading-relaxed italic"
+                        id="security-note">
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4 border-t border-white/5 pt-8">
+                <h3 class="text-lg font-semibold text-white/90">FAQ</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <p class="text-sm font-medium text-[#06B6D4]" id="faq-q1"></p>
+                        <p class="text-xs text-white/50" id="faq-a1"></p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-sm font-medium text-[#06B6D4]" id="faq-q2"></p>
+                        <p class="text-xs text-white/50" id="faq-a2"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Static SEO Content -->
+    <section class="max-w-4xl mx-auto w-full px-6 mt-4 mb-6">
+        <div class="glass rounded-3xl p-8 space-y-6">
+
+            <div>
+                <h2 class="text-xl font-bold text-[#06B6D4] mb-3">¿Qué es PromptArchitect y para qué sirve?</h2>
+                <p class="text-sm text-white/60 leading-relaxed">
+                    <strong class="text-white/80">PromptArchitect</strong> es una herramienta gratuita de ingeniería de
+                    prompts
+                    que te ayuda a construir instrucciones estructuradas para obtener mejores resultados de modelos de
+                    IA
+                    como ChatGPT, Claude o Gemini. Funciona completamente en tu navegador — sin registro, sin servidores
+                    externos,
+                    con total privacidad de tus datos.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5">
+                <div class="bg-white/3 rounded-2xl p-5 border border-white/5">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-[#06B6D4] mb-3">Modo Académico</h3>
+                    <p class="text-xs text-white/55 leading-relaxed">Optimiza prompts para investigación, ensayos y
+                        análisis académico. Estructura la instrucción con rigor formal y referencias claras.</p>
+                </div>
+                <div class="bg-white/3 rounded-2xl p-5 border border-white/5">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-[#06B6D4] mb-3">Modo Creativo</h3>
+                    <p class="text-xs text-white/55 leading-relaxed">Transforma prompts básicos en instrucciones ricas
+                        en contexto narrativo, tono y estilo para generación creativa de contenido.</p>
+                </div>
+                <div class="bg-white/3 rounded-2xl p-5 border border-white/5">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-[#06B6D4] mb-3">Modo Técnico/Experto
+                    </h3>
+                    <p class="text-xs text-white/55 leading-relaxed">Refina prompts para tareas técnicas y de
+                        programación,
+                        con especificidad de lenguaje, restricciones y formato de salida.</p>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/5">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-[#06B6D4] mb-4">Casos de uso frecuentes</h3>
+                <div class="grid md:grid-cols-2 gap-4 text-xs text-white/55 leading-relaxed">
+                    <div class="flex gap-3"><span class="text-[#06B6D4] font-bold shrink-0">→</span>
+                        <p><strong class="text-white/75">Desarrolladores:</strong> Prompts precisos para generación de
+                            código,
+                            debugging y documentación técnica con IA.</p>
+                    </div>
+                    <div class="flex gap-3"><span class="text-[#06B6D4] font-bold shrink-0">→</span>
+                        <p><strong class="text-white/75">Redactores y marketers:</strong> Prompts estructurados para
+                            copy,
+                            artículos, emails y contenido para redes sociales.</p>
+                    </div>
+                    <div class="flex gap-3"><span class="text-[#06B6D4] font-bold shrink-0">→</span>
+                        <p><strong class="text-white/75">Investigadores:</strong> Instrucciones académicas bien formadas
+                            para
+                            análisis, resúmenes y síntesis de información.</p>
+                    </div>
+                    <div class="flex gap-3"><span class="text-[#06B6D4] font-bold shrink-0">→</span>
+                        <p><strong class="text-white/75">Usuarios de IA en general:</strong> Cualquiera que quiera
+                            mejorar
+                            la calidad de sus resultados sin aprender prompt engineering desde cero.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/5">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-[#06B6D4] mb-4">Preguntas frecuentes</h3>
+                <div class="grid md:grid-cols-2 gap-6 text-xs">
+                    <div>
+                        <p class="font-bold text-white/80 mb-1">¿Mis prompts se almacenan en algún servidor?</p>
+                        <p class="text-white/50 leading-relaxed">No. Todo el procesamiento ocurre en tu navegador.
+                            Ningún
+                            prompt sale de tu dispositivo hacia servidores externos.</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-white/80 mb-1">¿Funciona con cualquier modelo de IA?</p>
+                        <p class="text-white/50 leading-relaxed">Sí. Los prompts refinados son texto plano compatible
+                            con
+                            ChatGPT, Claude, Gemini, Llama y cualquier otro LLM.</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-white/80 mb-1">¿Necesito saber prompt engineering?</p>
+                        <p class="text-white/50 leading-relaxed">No. PromptArchitect aplica las mejores prácticas
+                            automáticamente según el modo que elijas.</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-white/80 mb-1">¿Es completamente gratuito?</p>
+                        <p class="text-white/50 leading-relaxed">Sí. Sin registro, sin límites de uso, disponible en
+                            <a href="https://prompt.optimicrotools.com"
+                                class="text-[#06B6D4]">prompt.optimicrotools.com</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-white/5 flex flex-wrap gap-4 items-center justify-between">
+                <p class="text-xs text-white/30">Parte de <a href="https://optimicrotools.com"
+                        class="text-[#06B6D4] hover:opacity-80">OptiMicroTools</a> — 9 herramientas gratuitas.</p>
+                <div class="flex gap-4 text-xs text-white/30">
+                    <a href="https://optimicrotools.com/blog.html" class="hover:text-[#06B6D4] transition-colors">Blog
+                        técnico</a>
+                    <a href="https://text.optimicrotools.com"
+                        class="hover:text-[#06B6D4] transition-colors">PureText</a>
+                    <a href="https://qr.optimicrotools.com" class="hover:text-[#06B6D4] transition-colors">QuickQR
+                        Pro</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Bottom Ad Slot -->
-    <div class="ad-slot max-w-full" id="ad-bottom" data-label="Ads / Anuncio"></div>
+    <div class="ad-slot max-w-full min-h-[90px]" id="ad-bottom" data-label="Ads / Anuncio"></div>
 
     <!-- Footer -->
     <footer class="px-6 py-12 text-center text-white/30 text-xs tracking-widest uppercase space-y-6">
         <div class="flex flex-wrap justify-center gap-6 mb-4">
-            <button onclick="openModal('terms')" class="hover:text-cyan-400 transition-colors">Terms of Service</button>
-            <button onclick="openModal('privacy')" class="hover:text-cyan-400 transition-colors">Privacy Policy</button>
+            <a href="https://optimicrotools.com/terms.html" class="hover:text-cyan-400 transition-colors"
+                id="footer-terms">Terms of Service</a>
+            <a href="https://optimicrotools.com/privacy.html" class="hover:text-cyan-400 transition-colors"
+                id="footer-privacy">Privacy Policy</a>
             <button onclick="openModal('support')" id="footer-support"
                 class="hover:text-cyan-400 transition-colors font-bold">Support Project</button>
             <button onclick="openModal('contact')" id="footer-contact"
@@ -349,7 +520,7 @@
                             d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                 </a>
-                <a href="mailto:jota302@gmail.com"
+                <a href="/cdn-cgi/l/email-protection#573d38233664676517303a363e3b7934383a"
                     class="flex items-center justify-between p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all border border-white/5 group">
                     <span class="font-medium text-white/80 group-hover:text-white">Email</span>
                     <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2"
@@ -362,6 +533,7 @@
         </div>
     </div>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         const translations = {
             es: {
@@ -385,10 +557,18 @@
                 contactTitle: "Contacto",
                 usdtLabel: "Crypto (USDT TRC20)",
                 copyBtn: "Copiar",
-                termsTitle: "Términos de Servicio",
-                privacyTitle: "Política de Privacidad",
-                termsContent: `<h2>Términos de Servicio</h2><p>Al utilizar PromptArchitect, aceptas nuestros términos. Esta herramienta procesa datos localmente en tu navegador. No almacenamos tus prompts en ningún servidor externo.</p><h3>Uso Aceptable</h3><p>Te comprometes a no utilizar la herramienta para generar contenido malicioso o ilegal.</p>`,
-                privacyContent: `<h2>Política de Privacidad</h2><p>Tu privacidad es nuestra prioridad. OptiMicroTools no recopila, almacena ni comparte los datos que introduces en PromptArchitect.</p><h3>Procesamiento Local</h3><p>Todo el refinamiento de prompts ocurre en el lado del cliente (tu dispositivo).</p>`
+                aboutTitle: "Technical Insights: Cómo Funciona PromptArchitect",
+                aboutDescription: "PromptArchitect es una herramienta avanzada de ingeniería de prompts diseñada para transformar ideas vagas en instrucciones precisas y altamente efectivas para modelos de lenguaje (LLMs). Utiliza una lógica de 'Refinado Multimodal' que aplica plantillas estructurales basadas en el contexto seleccionado (académico, creativo, técnico o experto). A diferencia de otras herramientas, optimizamos la semántica del prompt para maximizar la probabilidad de obtener respuestas coherentes y profundas, reduciendo las alucinaciones de la IA y mejorando significativamente el flujo de trabajo de profesionales y entusiastas.",
+                usageTitle: "Guía de Uso Rápida",
+                usageStep1: "Introduce tu prompt base o idea inicial en el área de texto principal.",
+                usageStep2: "Selecciona el modo de refinado que mejor se adapte a tus necesidades específicas.",
+                usageStep3: "Haz clic en 'Optimizar' para obtener tu prompt maestro listo para copiar y usar.",
+                securityTitle: "Seguridad y Privacidad (Client-Side)",
+                securityNote: "PromptArchitect utiliza Client-Side Processing exclusivo. Esto significa que toda la lógica de refinamiento se ejecuta directamente en tu navegador mediante JavaScript. Sus datos nunca salen de su dispositivo ni se envían a servidores externos para su procesamiento, cumpliendo con los más altos estándares de privacidad técnica.",
+                faqQ1: "¿Cómo mejora esto la respuesta de la IA?",
+                faqA1: "Al estructurar el prompt con roles específicos y directrices de salida claras, la IA asigna más 'atención' a las variables críticas, produciendo resultados más precisos.",
+                faqQ2: "¿Se guardan mis prompts?",
+                faqA2: "No. PromptArchitect no tiene base de datos persistente. Una vez que cierras o recargas la pestaña, toda la sesión se elimina por completo de la memoria volátil del navegador."
             },
             en: {
                 title: "PromptArchitect | Refine your Prompts",
@@ -411,10 +591,18 @@
                 contactTitle: "Contact",
                 usdtLabel: "Crypto (USDT TRC20)",
                 copyBtn: "Copy",
-                termsTitle: "Terms of Service",
-                privacyTitle: "Privacy Policy",
-                termsContent: `<h2>Terms of Service</h2><p>By using PromptArchitect, you agree to our terms. This tool processes data locally in your browser. We do not store your prompts on any external server.</p><h3>Acceptable Use</h3><p>You agree not to use the tool to generate malicious or illegal content.</p>`,
-                privacyContent: `<h2>Privacy Policy</h2><p>Your privacy is our priority. OptiMicroTools does not collect, store, or share the data you enter into PromptArchitect.</p><h3>Local Processing</h3><p>All prompt refinement occurs on the client-side (your device).</p>`
+                aboutTitle: "Technical Insights: How PromptArchitect Works",
+                aboutDescription: "PromptArchitect is an advanced prompt engineering tool designed to transform vague ideas into precise and highly effective instructions for Large Language Models (LLMs). It utilizes a 'Multimodal Refinement' logic that applies structural templates based on the selected context (academic, creative, technical, or expert). Unlike other tools, we optimize prompt semantics to maximize the probability of obtaining coherent and insightful responses, reducing AI hallucinations and significantly improving the workflow for professionals and enthusiasts alike.",
+                usageTitle: "Quick Usage Guide",
+                usageStep1: "Enter your base prompt or initial idea in the main text area.",
+                usageStep2: "Select the refinement mode that best fits your specific needs.",
+                usageStep3: "Click 'Optimize' to get your master prompt ready to copy and use.",
+                securityTitle: "Security and Privacy (Client-Side)",
+                securityNote: "PromptArchitect exclusively uses Client-Side Processing. This means that all refinement logic runs directly in your browser via JavaScript. Your data never leaves your device or is sent to external servers for processing, complying with the highest technical privacy standards.",
+                faqQ1: "How does this improve AI responses?",
+                faqA1: "By structuring the prompt with specific roles and clear output guidelines, the AI allocates more 'attention' to critical variables, producing more accurate results.",
+                faqQ2: "Are my prompts stored?",
+                faqA2: "No. PromptArchitect does not have a persistent database. Once you close or reload the tab, the entire session is completely cleared from the browser's volatile memory."
             }
         };
 
@@ -440,18 +628,26 @@
         let currentLang = 'es';
         let currentMode = 'academic';
 
+        function toggleLanguage() {
+            setLanguage(currentLang === 'en' ? 'es' : 'en');
+        }
+
+        function initLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            const validUrlLang = (urlLang === 'es' || urlLang === 'en') ? urlLang : null;
+            const savedLang = localStorage.getItem('lang');
+            const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+            setLanguage(validUrlLang || savedLang || browserLang);
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
-            try {
-                const savedLang = localStorage.getItem('pa-lang');
-                setLanguage(savedLang || (navigator.language.split('-')[0] === 'en' ? 'en' : 'es'));
-            } catch (e) {
-                setLanguage('es');
-            }
+            initLanguage();
         });
 
         function setLanguage(lang) {
             currentLang = lang;
-            localStorage.setItem('pa-lang', lang);
+            localStorage.setItem('lang', lang);
             const t = translations[lang];
 
             document.title = t.title;
@@ -474,14 +670,37 @@
             btns[2].querySelector('span').innerText = t.modeTechnical;
             btns[3].querySelector('span').innerText = t.modeExpert;
 
-            document.getElementById('btn-es').style.color = lang === 'es' ? '#06B6D4' : '';
-            document.getElementById('btn-en').style.color = lang === 'en' ? '#06B6D4' : '';
+            // Toggle circle
+            const circle = document.getElementById('toggle-circle');
+            if (circle) circle.style.transform = lang === 'es' ? 'translateX(20px)' : 'translateX(0)';
+            document.documentElement.lang = lang;
+            document.body.style.opacity = '1';
 
             // Update modal labels
             document.getElementById('support-title').innerText = t.supportTitle;
             document.getElementById('contact-title').innerText = t.contactTitle;
             document.getElementById('usdt-label').innerText = t.usdtLabel;
             document.getElementById('usdt-copy-text').innerText = t.copyBtn;
+
+            // Update About Section
+            // Footer legal links
+            const ft = document.getElementById('footer-terms');
+            const fp = document.getElementById('footer-privacy');
+            if (ft) ft.innerText = lang === 'es' ? 'Términos de Servicio' : 'Terms of Service';
+            if (fp) fp.innerText = lang === 'es' ? 'Política de Privacidad' : 'Privacy Policy';
+
+            document.getElementById('about-title').innerText = t.aboutTitle;
+            document.getElementById('about-description').innerText = t.aboutDescription;
+            document.getElementById('usage-title').innerText = t.usageTitle;
+            document.getElementById('usage-step-1').innerText = t.usageStep1;
+            document.getElementById('usage-step-2').innerText = t.usageStep2;
+            document.getElementById('usage-step-3').innerText = t.usageStep3;
+            document.getElementById('security-title').innerText = t.securityTitle;
+            document.getElementById('security-note').innerText = t.securityNote;
+            document.getElementById('faq-q1').innerText = t.faqQ1;
+            document.getElementById('faq-a1').innerText = t.faqA1;
+            document.getElementById('faq-q2').innerText = t.faqQ2;
+            document.getElementById('faq-a2').innerText = t.faqA2;
         }
 
         function selectMode(mode, element) {
@@ -542,15 +761,6 @@
             content.classList.add('hidden');
             support.classList.add('hidden');
             contact.classList.add('hidden');
-
-            if (type === 'terms' || type === 'privacy') {
-                modalBody.innerHTML = translations[currentLang][type + 'Content'];
-                content.classList.remove('hidden');
-            } else if (type === 'support') {
-                support.classList.remove('hidden');
-            } else if (type === 'contact') {
-                contact.classList.remove('hidden');
-            }
             document.body.style.overflow = 'hidden';
         }
 
@@ -574,13 +784,15 @@
             const btn = document.getElementById('usdt-copy-text');
             try {
                 await navigator.clipboard.writeText(address);
+                await navigator.clipboard.writeText(address);
                 const original = btn.innerText;
                 btn.innerText = translations[currentLang].copied;
                 setTimeout(() => btn.innerText = original, 2000);
-            } catch (err) {
-                console.error('Copy error:', err);
+            } catch (e) {
+                console.error('Copy failed:', e);
             }
         }
+
     </script>
 </body>
 
