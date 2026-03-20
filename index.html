@@ -599,9 +599,12 @@
                             d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                 </a>
-                <a href="/cdn-cgi/l/email-protection#573d38233664676517303a363e3b7934383a"
+                <a href="mailto:jota302@gmail.com"
                     class="flex items-center justify-between p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all border border-white/5 group">
-                    <span class="font-medium text-white/80 group-hover:text-white">Email</span>
+                    <div>
+                        <span class="font-medium text-white/80 group-hover:text-white">Email</span>
+                        <p class="text-xs text-white/40">jota302@gmail.com</p>
+                    </div>
                     <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -838,12 +841,18 @@
             const content = document.getElementById('content-modal');
             const support = document.getElementById('support-modal');
             const contact = document.getElementById('contact-modal');
-            const modalBody = document.getElementById('modal-body');
 
             overlay.classList.replace('hidden', 'flex');
             content.classList.add('hidden');
             support.classList.add('hidden');
             contact.classList.add('hidden');
+
+            if (type === 'support') {
+                support.classList.remove('hidden');
+            } else if (type === 'contact') {
+                contact.classList.remove('hidden');
+            }
+
             document.body.style.overflow = 'hidden';
         }
 
